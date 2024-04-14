@@ -8,7 +8,7 @@ import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Ka
 import './App.css'
 import { useStateContext } from './contexts/ContextProvider';
 const App = () => {
-    const { activeMenu } = useStateContext()
+    const {activeMenu } = useStateContext()
   return (
     <div>
         <BrowserRouter>
@@ -40,7 +40,7 @@ const App = () => {
                     <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
                         <Navbar/>
                     </div>
-                </div>
+
 
                 <div>
 
@@ -70,7 +70,7 @@ const App = () => {
                         <Route path="/stacked" element={<Stacked />} />
                     </Routes>
                 </div>
-                <Footer />
+                </div>
             </div>
         </BrowserRouter>
     </div>
