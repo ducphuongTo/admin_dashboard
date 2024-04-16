@@ -3,20 +3,29 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
-import { Navbar, Footer, Sidebar, ThemeSettings } from './components'
+import { Navbar, Footer, Sidebar, ThemeSetting } from './components'
 import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
 import './App.css'
 import { useStateContext } from './contexts/ContextProvider';
 const App = () => {
-    const {activeMenu } = useStateContext()
+    const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
+    useEffect(() => {
+        const currentThemeColor = localStorage.getItem('colorMode');
+        const currentThemeMode = localStorage.getItem('themeMode');
+        if (currentThemeColor && currentThemeMode) {
+          setCurrentColor(currentThemeColor);
+          setCurrentMode(currentThemeMode);
+        }
+      }, []);
   return (
-    <div>
+    <div className={currentMode === 'Dark' ? 'dark' : ''}>
         <BrowserRouter>
             <div className='flex relative dark:bg-main-dark-bg'>
                 <div className='fixed right-4 bottom-4' style={{ zIndex: '1000'}}>
                     <TooltipComponent content="Settings" position='Top'>
                         <button type='button' className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white'
-                            style={{ background: 'blue', borderRadius: '50%'}}
+                            style={{ background: currentColor, borderRadius: '50%' }}
+                            onClick={()=> setThemeSettings(true)}
                         >
                             <FiSettings/>
                         </button>
@@ -43,7 +52,7 @@ const App = () => {
 
 
                 <div>
-
+                    {themeSettings && <ThemeSetting/>}
                     <Routes>
                         { /*dashboard*/ }
                         <Route path="/" element={(<Ecommerce />)} />
@@ -58,7 +67,6 @@ const App = () => {
                             <Route path="/kanban" element={<Kanban />} />
                             <Route path="/editor" element={<Editor />} />
                             <Route path="/calendar" element={<Calendar />} />
-                            <Route path="/color-picker" element={<ColorPicker />} />
                         {/* charts  */}
                         <Route path="/line" element={<Line />} />
                         <Route path="/area" element={<Area />} />
