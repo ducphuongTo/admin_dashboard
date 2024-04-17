@@ -2,13 +2,11 @@ import React from 'react';
 import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
 import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
 import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
-import { BiColorFill } from 'react-icons/bi';
 import { IoMdContacts } from 'react-icons/io';
 import { RiContactsLine, RiStockLine } from 'react-icons/ri';
 import { MdOutlineSupervisorAccount } from 'react-icons/md';
 import { HiOutlineRefresh } from 'react-icons/hi';
 import { TiTick } from 'react-icons/ti';
-import { GiLouvrePyramid } from 'react-icons/gi';
 import { GrLocation } from 'react-icons/gr';
 import avatar from './avatar.jpg';
 import avatar2 from './avatar2.jpg';
@@ -302,43 +300,6 @@ export const barCustomSeries = [
     },
   },
 ];
-export const colorMappingData = [
-  [
-    { x: 'Jan', y: 6.96 },
-    { x: 'Feb', y: 8.9 },
-    { x: 'Mar', y: 12 },
-    { x: 'Apr', y: 17.5 },
-    { x: 'May', y: 22.1 },
-    { x: 'June', y: 25 },
-    { x: 'July', y: 29.4 },
-    { x: 'Aug', y: 29.6 },
-    { x: 'Sep', y: 25.8 },
-    { x: 'Oct', y: 21.1 },
-    { x: 'Nov', y: 15.5 },
-    { x: 'Dec', y: 9.9 },
-  ],
-  ['#FFFF99'],
-  ['#FFA500'],
-  ['#FF4040'],
-];
-
-export const rangeColorMapping = [
-  { label: '1°C to 10°C',
-    start: '1',
-    end: '10',
-    colors: colorMappingData[1] },
-
-  { label: '11°C to 20°C',
-    start: '11',
-    end: '20',
-    colors: colorMappingData[2] },
-
-  { label: '21°C to 30°C',
-    start: '21',
-    end: '30',
-    colors: colorMappingData[3] },
-
-];
 
 export const ColorMappingPrimaryXAxis = {
   valueType: 'Category',
@@ -537,14 +498,6 @@ export const links = [
       {
         name: 'financial',
         icon: <RiStockLine />,
-      },
-      {
-        name: 'color-mapping',
-        icon: <BsBarChart />,
-      },
-      {
-        name: 'pyramid',
-        icon: <GiLouvrePyramid />,
       },
       {
         name: 'stacked',
@@ -5858,12 +5811,4 @@ export const financialChartData = [
     close: 158.67,
     volume: 27939544,
   },
-];
-export const PyramidData = [
-  { x: 'Sweet Treats', y: 120, text: '120 cal' },
-  { x: 'Milk, Youghnut, Cheese', y: 435, text: '435 cal' },
-  { x: 'Vegetables', y: 470, text: '470 cal' },
-  { x: 'Meat, Poultry, Fish', y: 475, text: '475 cal' },
-  { x: 'Fruits', y: 520, text: '520 cal' },
-  { x: 'Bread, Rice, Pasta', y: 930, text: '930 cal' },
 ];
